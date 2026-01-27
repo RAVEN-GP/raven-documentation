@@ -1,0 +1,65 @@
+# BFMC (RAVEN Version) - Documentation Project
+
+This repo contains the sources for the Bosch Future Mobility Challenge documentation.
+Find it at this [link](https://bosch-future-mobility-challenge-documentation.readthedocs-hosted.com)
+
+Please find here the [Team Raven: Technical Dependency Map](https://docs.google.com/spreadsheets/d/1YjaaoJ-bXWc-HwKyBHRvmbrGb-Hnskfs1KYgbPaIz-Q/edit?usp=sharing)
+
+---
+
+## 🚦 Project Workflow & Dependencies
+
+To manage our team effectively, we utilize a structured numbering system and parallel development tracks.
+
+### 1. The Gap (Issues 009 – 018): The "Hardware Arrival" Phase
+
+The gap in issue numbering is reserved for the **Physical Car Integration** phase once the DHL package arrives. While we are currently in a "No-Car" phase, these missing numbers represent future milestones for:
+
+* **Physical Assembly:** Mounting the camera and sensors.
+* **Sensor Calibration:** Moving from virtual camera math to real lens calibration.
+* **Real-World PID Tuning:** Adjusting the  and  values on actual asphalt/tiles instead of Gazebo friction.
+* **Power Management:** Testing the actual battery sag and voltage rails.
+
+**Task 019a** serves as the bridge; it is the documentation audit performed now to ensure we are ready to fill the 009–018 gap the moment the car is unboxed.
+
+### 2. Sub-task Dependencies (e.g., 008a vs. 008b)
+
+In most cases, "a" must start before "b," but they can be worked on simultaneously once the "handshake" is defined.
+
+* **Sequential Dependency:** For 008a (Capture) and 008b (AI), you cannot train the AI without data. One member takes screenshots (008a) to provide the dataset for the recognition model (008b).
+* **Parallel Development:** The member on 008b can write the "Logic Skeleton" (code expecting an image and returning a label) using placeholder images while waiting for data from 008a.
+
+### 3. Inter-Team Parallelism (e.g., 007X vs. 008X)
+
+Work happens in parallel across our 3 Teams:
+
+* **Team C** can finish the Dashboard (007a) using "Mock Data" (fake speed/steer numbers) to test the UI layout.
+* **Team A** can be mid-development on the Sign AI (008b).
+* **The Connection:** Teams only need to meet at the end to "plug" the real AI output into the Dashboard.
+
+---
+## 📋 Kanban Board & Team Structure
+
+Our GitHub Project board uses a specific labeling system to define ownership and task types.
+
+### Team Definitions
+
+* **Team A: Perception & Data (The "Eyes"):** Focused on the vision pipeline, OpenCV, and AI models. They use `raven-brain-stack` (Vision) and `raven-sim`.
+* **Team B: Hardware & Low-Level (The "Spine"):** Focused on the physical car, C++ Nucleo code, and PID control. They use `raven-embedded-control` and `bfmc-documentation`.
+* **Team C: Integration & Logic (The "Joker"):** The decision-makers who connect Team A to Team B. They write the State Machine (FSM) and Dashboard in `raven-brain-stack` and `raven-computer`.
+
+### How to Read Issues
+
+Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Team Label]`.
+
+1. **GENERAL Status:** Foundational tasks (like 001a and 019a) that **everyone** must understand or perform to set up their environment.
+2. **SPECIALIZED Status:** Technical features specific to a single team's mission (e.g., PID math for Team B or AI for Team A).
+
+---
+## 📝 Summary of Workflow Logic
+
+* **General Tasks (001a, 019a):** Everyone starts here immediately to ensure the "Digital Twin" and "Hardware Map" are understood.
+* **Sub-tasks (a, b, c):** These are "Micro-steps" within a feature. Usually, "a" provides the input for "b".
+* **Team Parallelism:** Team A, B, and C work at the same time because the **Serial Protocol** acts as a contract between them.
+
+Updated on Tue 27 Jan, 2026 by Hatem Soliman
