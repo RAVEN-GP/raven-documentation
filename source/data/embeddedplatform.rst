@@ -11,6 +11,7 @@ Embedded platform
    embeddedplatform/debugging
    embeddedplatform/mainFlow
    embeddedplatform/calibration
+   embeddedplatform/speedPid
 
 **Quick navigation**
 
@@ -37,6 +38,10 @@ Embedded platform
 * :doc:`calibration procedure <embeddedplatform/calibration>`
 
   - A few notes regarding the calibration
+
+* :doc:`Speed PID Controller <embeddedplatform/speedPid>`
+
+  - Closed-loop velocity control documentation and tuning guide.
 
 .. note::
 
