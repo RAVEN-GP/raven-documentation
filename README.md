@@ -127,4 +127,8 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   Automated script in `raven-sim` to capture diverse training datasets.
     *   Documentation: `source/data/brain/synthetic_capture.rst`
 
+*   **Sign Recognition AI (Task 008b):**
+    *   YOLOv8-based detection of Stop Signs and Parking Meters.
+    *   Documentation: `source/data/brain/sign_recognition.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman

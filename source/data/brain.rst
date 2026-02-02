@@ -17,6 +17,7 @@ Brain Project
    brain/fsm
    brain/dashboard
    brain/synthetic_capture
+   brain/sign_recognition
 
 * :doc:`New component <brain/newComponent>`
   
@@ -65,6 +66,10 @@ Brain Project
 * :doc:`Synthetic Data Generator <brain/synthetic_capture>` (008a)
 
   - Automates dataset creation by moving the car in Gazebo around traffic signs.
+
+* :doc:`Sign Recognition AI <brain/sign_recognition>` (008b)
+
+  - YOLOv8-based detection of Stop Signs and Parking Meters.
 
 Alternative Projects
 --------------------
