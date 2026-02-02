@@ -62,4 +62,22 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
 * **Sub-tasks (a, b, c):** These are "Micro-steps" within a feature. Usually, "a" provides the input for "b".
 * **Team Parallelism:** Team A, B, and C work at the same time because the **Serial Protocol** acts as a contract between them.
 
-Updated on Tue 27 Jan, 2026 by Hatem Soliman
+
+## 🚀 Recently Documented Features
+
+*   **Speed PID Controller (Task 003a):**
+    *   Closed-loop velocity control for the Nucleo.
+    *   Tunable Kp, Ki, Kd parameters via serial.
+    *   Documentation: `source/data/embeddedplatform/speedPid.rst`
+
+*   **Steering & MPC Control (Task 003b):**
+    *   Combined Speed + Steering command (`#mpc:speed;steer`).
+    *   Anti-jitter logic for servo protection.
+    *   Documentation: `source/data/embeddedplatform/steeringControl.rst`
+
+*   **IPM Matrix Calculation (Task 002a):**
+    *   Tools for calculating Inverse Perspective Mapping (Birds-eye view).
+    *   Includes Mac/PC local development support.
+    *   Documentation: `source/data/brain/ipm.rst`
+
+Updated on Mon 02 Feb, 2026 by Hatem Soliman
