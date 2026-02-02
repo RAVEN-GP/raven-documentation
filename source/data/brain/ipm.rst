@@ -12,6 +12,20 @@ Inverse Perspective Mapping (IPM) transforms the forward-facing camera view into
 - Lane detection and maintaining lane position.
 - Object localization on the ground plane.
 
+Local Development (Mac/PC)
+--------------------------
+To test the calibration tools without a Raspberry Pi:
+
+1. Initialize the environment:
+
+   .. code-block:: bash
+
+       python3 -m venv venv
+       source venv/bin/activate
+       pip install -r requirements-mac.txt
+
+2. The ``collect_images.py`` script will automatically fall back to your webcam if the Pi Camera is not found.
+
 Workflow
 --------
 The calibration process is divided into three steps, utilizing scripts found in `src/calibration/`.
