@@ -1,0 +1,7 @@
+.vscode/
+build/
+.iis/
+demo.pdf
+*.DS_Store
+__pycache__/
+*.pyc
