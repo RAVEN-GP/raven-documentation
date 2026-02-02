@@ -80,4 +80,19 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   Includes Mac/PC local development support.
     *   Documentation: `source/data/brain/ipm.rst`
 
+*   **Video Stream Handler (Task 001b):**
+    *   Bridges Gazebo/ROS images to OpenCV.
+    *   Subscribes to `/camera/rgb/image_raw` and publishes preview.
+    *   Documentation: `source/data/brain/videostream.rst`
+
+*   **Lane Segmentation (Task 002b):**
+    *   Isolates the track using ROI masking and thresholding.
+    *   Publishes binary mask to `/raven/perception/lane_mask`.
+    *   Documentation: `source/data/brain/lanesegmentation.rst`
+
+*   **Lateral Control (Task 002c):**
+    *   Calculates steering error from lane mask centroid.
+    *   Publishes error to `/raven/control/lateral_error`.
+    *   Documentation: `source/data/brain/lateralcontrol.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman

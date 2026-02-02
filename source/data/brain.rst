@@ -11,6 +11,7 @@ Brain Project
    brain/ipm
    brain/videostream
    brain/lanesegmentation
+   brain/lateralcontrol
 
 * :doc:`New component <brain/newComponent>`
   
@@ -35,6 +36,10 @@ Brain Project
 * :doc:`Lane Segmentation <brain/lanesegmentation>`
 
   - Explains the ROI masking and thresholding logic to detect the track.
+
+* :doc:`Lateral Control <brain/lateralcontrol>`
+
+  - Calculates the lateral error (steering offset) from the lane mask.
 
 Alternative Projects
 --------------------
