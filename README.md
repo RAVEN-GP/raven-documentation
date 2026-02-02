@@ -40,7 +40,9 @@ Work happens in parallel across our 3 Teams:
 ---
 ## 👥 Team Roster & Task Allocation
 For a detailed breakdown of team roles and member contributions, please refer to our [Official Membership & Tasks Sheet](https://docs.google.com/spreadsheets/d/1RilLu0W7pt7jjyVc8MYLopzRnFdB_6Sp1dFgL2LRUzE/edit?usp=sharing).
-All development tasks are distributed across the 5-member squad to ensure parallel progress.
+All development tasks are distributed across the 5-member squad to ensure parallel progress. 
+
+> **Note on Version Control:** To maintain a clean main branch, **Hatem Soliman** acts as the *Integration Lead*, reviewing and committing modules submitted by Team A, B, and C members. Thus, the commit history reflects the integration events rather than individual author timestamps.
 
 ## 📋 Kanban Board & Team Structure
 
