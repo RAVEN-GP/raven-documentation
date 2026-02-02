@@ -10,6 +10,7 @@ Brain Project
    brain/stateMachine
    brain/ipm
    brain/videostream
+   brain/lanesegmentation
 
 * :doc:`New component <brain/newComponent>`
   
@@ -30,6 +31,10 @@ Brain Project
 * :doc:`Video Stream Handler <brain/videostream>`
 
   - How the ROS1 Noetic node converts Gazebo images for OpenCV processing.
+
+* :doc:`Lane Segmentation <brain/lanesegmentation>`
+
+  - Explains the ROI masking and thresholding logic to detect the track.
 
 Alternative Projects
 --------------------
