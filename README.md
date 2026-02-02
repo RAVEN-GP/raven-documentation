@@ -119,4 +119,8 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   Mission Control UI for visualization and emergency stop.
     *   Documentation: `source/data/brain/dashboard.rst`
 
+*   **Serial Lexer & Parser (Task 004a/b):**
+    *   UART input scanning (#...;;) and Float extraction (sscanf).
+    *   Documentation: `source/data/embeddedplatform/serial_lexer_parser.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman

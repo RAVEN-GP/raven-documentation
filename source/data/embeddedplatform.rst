@@ -13,6 +13,7 @@ Embedded platform
    embeddedplatform/calibration
    embeddedplatform/speedPid
    embeddedplatform/steeringControl
+   embeddedplatform/serial_lexer_parser
 
 **Quick navigation**
 
@@ -47,6 +48,10 @@ Embedded platform
 * :doc:`Steering Control & MPC <embeddedplatform/steeringControl>`
 
   - High-level MPC command and anti-jitter steering logic.
+
+* :doc:`Serial Lexer & Parser <embeddedplatform/serial_lexer_parser>` (004a/b)
+
+  - UART input scanning (#...;;) and Float extraction (sscanf) for Nucleo commands.
 
 .. note::
 
