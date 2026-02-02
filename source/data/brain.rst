@@ -8,6 +8,7 @@ Brain Project
    brain/newComponent
    brain/mainFlow
    brain/stateMachine
+   brain/ipm
 
 * :doc:`New component <brain/newComponent>`
   
@@ -20,6 +21,10 @@ Brain Project
 * :doc:`The State Machine <brain/stateMachine>`
 
   - Detailed guide on adding new modes, transitions, and using the State Machine.
+
+* :doc:`IPM Matrix Calculation <brain/ipm>`
+
+  - Guide to calculating and using the Inverse Perspective Mapping matrix.
 
 Alternative Projects
 --------------------
