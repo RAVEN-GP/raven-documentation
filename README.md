@@ -131,4 +131,8 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   YOLOv8-based detection of Stop Signs and Parking Meters.
     *   Documentation: `source/data/brain/sign_recognition.rst`
 
+*   **Dead Man Switch (Task 004c):**
+    *   Motor safety watchdog (500ms timeout) to prevent runaway vehicles.
+    *   Documentation: `source/data/embeddedplatform/dead_man_switch.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman

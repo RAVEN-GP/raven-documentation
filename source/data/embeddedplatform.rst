@@ -14,6 +14,7 @@ Embedded platform
    embeddedplatform/speedPid
    embeddedplatform/steeringControl
    embeddedplatform/serial_lexer_parser
+   embeddedplatform/dead_man_switch
 
 **Quick navigation**
 
@@ -52,6 +53,10 @@ Embedded platform
 * :doc:`Serial Lexer & Parser <embeddedplatform/serial_lexer_parser>` (004a/b)
 
   - UART input scanning (#...;;) and Float extraction (sscanf) for Nucleo commands.
+
+* :doc:`Dead Man Switch <embeddedplatform/dead_man_switch>` (004c)
+
+  - Motor safety watchdog (500ms timeout) to prevent runaway vehicles.
 
 .. note::
 
