@@ -38,6 +38,10 @@ Work happens in parallel across our 3 Teams:
 * **The Connection:** Teams only need to meet at the end to "plug" the real AI output into the Dashboard.
 
 ---
+## 👥 Team Roster & Task Allocation
+For a detailed breakdown of team roles and member contributions, please refer to our [Official Membership & Tasks Sheet](https://docs.google.com/spreadsheets/d/1RilLu0W7pt7jjyVc8MYLopzRnFdB_6Sp1dFgL2LRUzE/edit?usp=sharing).
+All development tasks are distributed across the 5-member squad to ensure parallel progress.
+
 ## 📋 Kanban Board & Team Structure
 
 Our GitHub Project board uses a specific labeling system to define ownership and task types.
