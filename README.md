@@ -123,4 +123,8 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   UART input scanning (#...;;) and Float extraction (sscanf).
     *   Documentation: `source/data/embeddedplatform/serial_lexer_parser.rst`
 
+*   **Synthetic Data Generator (Task 008a):**
+    *   Automated script in `raven-sim` to capture diverse training datasets.
+    *   Documentation: `source/data/brain/synthetic_capture.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman

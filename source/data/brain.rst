@@ -16,6 +16,7 @@ Brain Project
    brain/steering_mapper
    brain/fsm
    brain/dashboard
+   brain/synthetic_capture
 
 * :doc:`New component <brain/newComponent>`
   
@@ -60,6 +61,10 @@ Brain Project
 * :doc:`Telemetry Dashboard <brain/dashboard>` (007a)
 
   - Mission Control UI for visualization and emergency stop.
+
+* :doc:`Synthetic Data Generator <brain/synthetic_capture>` (008a)
+
+  - Automates dataset creation by moving the car in Gazebo around traffic signs.
 
 Alternative Projects
 --------------------
