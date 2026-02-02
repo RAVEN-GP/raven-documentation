@@ -12,6 +12,7 @@ Brain Project
    brain/videostream
    brain/lanesegmentation
    brain/lateralcontrol
+   brain/seriallink
 
 * :doc:`New component <brain/newComponent>`
   
@@ -40,6 +41,10 @@ Brain Project
 * :doc:`Lateral Control <brain/lateralcontrol>`
 
   - Calculates the lateral error (steering offset) from the lane mask.
+
+* :doc:`Python Serial Class <brain/seriallink>`
+
+  - Robust 10Hz Serial sender for communicating with the Nucleo.
 
 Alternative Projects
 --------------------

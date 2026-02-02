@@ -95,4 +95,9 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   Publishes error to `/raven/control/lateral_error`.
     *   Documentation: `source/data/brain/lateralcontrol.rst`
 
+*   **Python Serial Class (Task 005a):**
+    *   Robust 10Hz serial sender for Nucleo communication.
+    *   Thread-safe speed/steer updates and auto-reconnection.
+    *   Documentation: `source/data/brain/seriallink.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman
