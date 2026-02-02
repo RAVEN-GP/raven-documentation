@@ -9,6 +9,7 @@ Brain Project
    brain/mainFlow
    brain/stateMachine
    brain/ipm
+   brain/videostream
 
 * :doc:`New component <brain/newComponent>`
   
@@ -25,6 +26,10 @@ Brain Project
 * :doc:`IPM Matrix Calculation <brain/ipm>`
 
   - Guide to calculating and using the Inverse Perspective Mapping matrix.
+
+* :doc:`Video Stream Handler <brain/videostream>`
+
+  - How the ROS1 Noetic node converts Gazebo images for OpenCV processing.
 
 Alternative Projects
 --------------------
