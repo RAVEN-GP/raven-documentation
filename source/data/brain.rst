@@ -13,6 +13,9 @@ Brain Project
    brain/lanesegmentation
    brain/lateralcontrol
    brain/seriallink
+   brain/steering_mapper
+   brain/fsm
+   brain/dashboard
 
 * :doc:`New component <brain/newComponent>`
   
@@ -45,6 +48,18 @@ Brain Project
 * :doc:`Python Serial Class <brain/seriallink>`
 
   - Robust 10Hz Serial sender for communicating with the Nucleo.
+
+* :doc:`Steer Angle Mapping <brain/steering_mapper>` (005b)
+
+  - Converts vision error to steering degrees (PD Controller).
+
+* :doc:`FSM Framework <brain/fsm>` (006a/b)
+
+  - The Central Brain: Handles Drive/Stop/Park states and Traffic Sign Logic.
+
+* :doc:`Telemetry Dashboard <brain/dashboard>` (007a)
+
+  - Mission Control UI for visualization and emergency stop.
 
 Alternative Projects
 --------------------

@@ -100,4 +100,17 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   Thread-safe speed/steer updates and auto-reconnection.
     *   Documentation: `source/data/brain/seriallink.rst`
 
+*   **Steer Angle Mapping (Task 005b):**
+    *   Converts lateral error to physical steering angles.
+    *   Documentation: `source/data/brain/steering_mapper.rst`
+
+*   **FSM Framework & Sign Logic (Task 006a/b):**
+    *   Central Brain managing states (Idle, Drive, Stop).
+    *   Enforces traffic rules (Stop Sign logic).
+    *   Documentation: `source/data/brain/fsm.rst`
+
+*   **Telemetry Dashboard (Task 007a):**
+    *   Mission Control UI for visualization and emergency stop.
+    *   Documentation: `source/data/brain/dashboard.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman
