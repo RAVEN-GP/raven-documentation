@@ -135,4 +135,9 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
     *   Motor safety watchdog (500ms timeout) to prevent runaway vehicles.
     *   Documentation: `source/data/embeddedplatform/dead_man_switch.rst`
 
+*   **Remote Control System (Task 007b):**
+    *   Manual control via Web Dashboard (WASD).
+    *   Arduino RP2040 firmware with H-Bridge support.
+    *   Documentation: `source/data/remote_control.rst`
+
 Updated on Mon 02 Feb, 2026 by Hatem Soliman

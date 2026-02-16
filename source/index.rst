@@ -22,6 +22,7 @@ the computer project needs to be installed on a PC.
    data/vehicletoeverything
    data/embeddedplatform
    data/brain
+   data/remote_control
    data/useful
 
 
