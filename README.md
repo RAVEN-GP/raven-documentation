@@ -68,6 +68,27 @@ Each issue on the Kanban board follows this format: `[Issue #] [Task Name] - [Te
 * **Sub-tasks (a, b, c):** These are "Micro-steps" within a feature. Usually, "a" provides the input for "b".
 * **Team Parallelism:** Team A, B, and C work at the same time because the **Serial Protocol** acts as a contract between them.
 
+---
+
+## 🔌 Hardware Connection & Flashing Workflow
+
+The RAVEN platform utilizes a Raspberry Pi (High-Level Brain) connected to an Arduino Nano RP2040 Connect (Low-Level Controller). Depending on your development stage, the hardware connection flow changes:
+
+### Option 1: Development Mode (Desk Testing)
+*You are writing code on your Mac.*
+1. **Connection:** Plug the **Arduino** directly into your **Mac** via USB.
+2. **Flashing:** Run `raven flash --arch arduino` from your Mac terminal to compile and upload the `raven-rp2040.ino` firmware directly.
+3. **Execution:** Run `python3 serial_controller.py` on your Mac to test motors and sensors.
+
+### Option 2: Production Mode (Driving on Track)
+*The car is fully assembled.*
+1. **Connection:** The **Arduino** is physically mounted and plugged into the **Raspberry Pi** via USB. Both are powered by the car's battery.
+2. **Access:** Connect your Mac to the Raspberry Pi over Wi-Fi (SSH).
+3. **Flashing:** To update firmware, SSH into the Pi, run `git pull`, and execute `raven flash --arch arduino` **on the Pi**. The Pi acts as the compilation and flashing host.
+4. **Execution:** The `serial_controller.py` script runs on the Pi, handling the real-time control loop autonomously.
+
+---
+
 
 ## 🚀 Recently Documented Features
 
