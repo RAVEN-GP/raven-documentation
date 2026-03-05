@@ -40,6 +40,37 @@ You can extract any dimensions that are not explicitly listed in the pages above
 - `Test Track <https://github.com/ECC-BFMC/Documentation/blob/master/source/racetrack/Track_Test.svg>`_  
 - `Race Track <https://github.com/ECC-BFMC/Documentation/blob/master/source/racetrack/Track.svg>`_  
 
+Track Dimensions
+----------------
+
+The table below summarises the **overall bounding-box dimensions** of each track layout.
+All measurements are taken from the outer edge of the outermost road markings and reflect
+the total physical footprint required to set up the track.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 25 25 20
+
+   * - Track
+     - Overall Width
+     - Overall Length
+     - Source file
+   * - Test Track
+     - **6 000 mm (6 m)**
+     - **6 000 mm (6 m)**
+     - ``Track_Test.svg``
+   * - Race Track
+     - **~13 798 mm (~13.8 m)**
+     - **~20 648 mm (~20.6 m)**
+     - ``Track.svg``
+
+.. note::
+
+   The dimensions above are derived from the SVG document canvas sizes and represent
+   the **maximum extents** of the respective layouts.  
+   Refer to the SVG files linked in the *Tracks* section above for precise element
+   coordinates and to determine the exact usable driving area.
+
 Elements Positioning
 --------------------
 

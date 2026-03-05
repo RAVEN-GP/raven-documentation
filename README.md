@@ -149,7 +149,19 @@ The RAVEN platform utilizes a Raspberry Pi (High-Level Brain) connected to an Ar
     *   Documentation: `source/data/brain/synthetic_capture.rst`
 
 *   **Sign Recognition AI (Task 008b):**
-    *   YOLOv8-based detection of Stop Signs and Parking Meters.
+    *   YOLOv8-based detection of 9 BFMC miniature traffic signs.
+    *   **Training Pipeline:**
+        *   Run 1: 100 epochs on Bosch Traffic Signs dataset (561 images, 9 classes).
+        *   Run 3: +10 fine-tuning epochs with negative mining (39 red shirt backgrounds).
+    *   **Negative Mining:** Empty label files for non-sign images teach the model to reject false positives (e.g., red shirts misidentified as stop signs).
+    *   **Production Models (in `src/perception/sign_recognition/`):**
+        *   `bfmc_best_shirts.pt` — ⭐ Recommended (mAP50: 93.3%, shirt-aware).
+        *   `bfmc_best.pt` — Base model (mAP50: 92.7%).
+        *   `bfmc_last_shirts.pt` / `last.pt` — Checkpoints for resuming training.
+    *   **Training Scripts (in `training_workspace/`):**
+        *   `train_signs.py` — Fresh training from `yolov8n.pt`.
+        *   `resume_training.py` — Resume interrupted training.
+        *   `finetune_shirts.py` — Fine-tune with negative mining data.
     *   Documentation: `source/data/brain/sign_recognition.rst`
 
 *   **Dead Man Switch (Task 004c):**
