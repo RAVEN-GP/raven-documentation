@@ -162,6 +162,10 @@ The RAVEN platform utilizes a Raspberry Pi (High-Level Brain) connected to an Ar
         *   `train_signs.py` — Fresh training from `yolov8n.pt`.
         *   `resume_training.py` — Resume interrupted training.
         *   `finetune_shirts.py` — Fine-tune with negative mining data.
+    *   **Post-Detection Filters (`sign_filters.py`):**
+        *   Shape validation (aspect ratio rejects car-shaped false positives).
+        *   HSV color validation (lighting-independent hue check).
+        *   Size filter (rejects tiny noise and frame-filling detections).
     *   Documentation: `source/data/brain/sign_recognition.rst`
 
 *   **Dead Man Switch (Task 004c):**

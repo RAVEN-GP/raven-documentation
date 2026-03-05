@@ -97,6 +97,41 @@ What is Negative Mining?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 The 39 shirt images have **empty** ``.txt`` label files (0 bytes). In YOLO, an image with an empty label file means "this image exists but contains **no objects**." During training, when the model tries to detect a stop sign in a red shirt image, the empty label corrects it. Over many iterations, the model learns to distinguish between actual signs and visually similar non-sign objects (like red clothing).
 
+Post-Detection Filters
+----------------------
+After YOLO detects a potential sign, a filter pipeline in ``sign_filters.py`` validates each detection before accepting it. This catches false positives that YOLO's neural network alone might miss.
+
+**Filter Pipeline:**
+
+.. code-block:: text
+
+   YOLO Detection → Shape Check → Color Check → Size Check → ✅ Accept
+                         ↓              ↓             ↓
+                      ❌ reject      ❌ reject     ❌ reject
+
+**1. Shape Filter (Aspect Ratio)**
+
+Checks the bounding box height/width ratio. Signs are roughly square (~1.0), while cars are wide and flat (~0.3). A detection with a car-like aspect ratio is rejected.
+
+**2. Color Filter (HSV Hue Validation)**
+
+Converts the cropped bounding box to HSV color space and checks that enough pixels match the expected sign color. Uses HSV (not RGB/hex) because Hue encodes color independently of brightness — so a red sign in shadow and in sunlight both pass the filter.
+
+*   Stop, No Entry → Red (Hue: 0–10° or 170–180°)
+*   Parking, Crosswalk, Roundabout, One-way → Blue (Hue: 100–130°)
+*   Priority → Yellow (Hue: 15–40°)
+*   Highway signs → Blue-Green (Hue: 80–130°)
+
+**3. Size Filter (Pixel Area)**
+
+Rejects extremely small detections (< 200 px², likely noise) and extremely large ones (> 40% of frame, likely a misdetected background object).
+
+**Disabling Filters:**
+
+.. code-block:: bash
+
+   python3 live_sign_detector.py --no-filters  # Raw YOLO output, no validation
+
 Training Scripts
 ~~~~~~~~~~~~~~~~
 Located in ``training_workspace/``:
