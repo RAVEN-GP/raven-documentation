@@ -178,3 +178,102 @@ The RAVEN platform utilizes a Raspberry Pi (High-Level Brain) connected to an Ar
     *   Documentation: `source/data/remote_control.rst`
 
 Updated on Mon 02 Feb, 2026 by Hatem Soliman
+
+---
+
+## 🚀 Skynet — Integrated System Deployment Guide
+
+### What Was Built
+
+Three fully-working standalone scripts have been integrated into one coherent system running entirely on **native Python** (no ROS required for the driving loop).
+
+| Script | Role | Status |
+| --- | --- | --- |
+| `raven-brain-stack/src/serial_controller.py` | `SerialController` class + standalone keyboard control | ✅ Refactored |
+| `raven-brain-stack/src/skynet.py` | **Master integration** — 3 threads, all wired up | ✅ NEW |
+| `raven-brain-stack/services/rpi-wifi-fallback/frame_receiver_server.py` | Laptop video window (push-mode) | ✅ Updated |
+| `raven-brain-stack/src/perception/sign_recognition/live_sign_detector.py` | Standalone YOLO demo (Mac/Pi webcam) | ✅ Unchanged |
+| `raven-brain-stack/src/perception/sign_recognition/sign_filters.py` | Shape/color/size post-detection filters | ✅ Unchanged |
+
+### Architecture
+
+```
+Pi (SSH target)                             Mac / Laptop
+─────────────────────────────────────────   ─────────────────────────────
+src/skynet.py                               services/.../frame_receiver_server.py
+  ├── PerceptionThread                      (TCP port 5012)
+  │     Pi Camera → YOLOv8 + sign_filters    ↑ annotated JPEG frames
+  │     → sign label (SharedState)
+  │                                         SSH terminal: IMU / encoder
+  ├── PlannerThread                          telemetry printed live
+  │     sign label → SIGN_RULES table
+  │     → speed + steer (SharedState)
+  │
+  └── SerialThread
+        speed/steer → #speed:X;; #steer:X;;
+        ── USB ──► Arduino RP2040
+        ← @imu / @encoder telemetry
+```
+
+### Quick-Start
+
+**1. On Mac (start first — opens the video viewer):**
+```bash
+python3 raven-brain-stack/services/rpi-wifi-fallback/frame_receiver_server.py --display
+```
+
+**2. On the Pi (via SSH):**
+```bash
+ssh captive@<PI_IP>
+cd ~/raven-brain-stack
+python3 src/skynet.py --laptop-ip <YOUR_MAC_IP>
+```
+
+**Useful flags for `skynet.py`:**
+
+| Flag | Effect |
+| --- | --- |
+| `--no-stream` | Skip video streaming (Pi only) |
+| `--no-arduino` | Dry-run without Arduino |
+| `--conf 0.35` | Lower YOLO confidence threshold |
+| `--no-filters` | Disable post-detection filters |
+| `--laptop-ip X.X.X.X` | Override Mac IP (default `10.105.27.45`) |
+
+### Sign Reaction Rules
+
+Edit `SIGN_RULES` at the top of `src/skynet.py`:
+
+```python
+SIGN_RULES = {
+    "stop":             {"speed": 0,   "steer": 0, "duration_s": 3},
+    "highway_entrance": {"speed": 30,  "steer": 0, "duration_s": 0},
+    "crosswalk":        {"speed": 10,  "steer": 0, "duration_s": 0},
+    ...
+}
+DEFAULT_SPEED = 15  # Cruise speed between signs
+```
+
+### Standalone Scripts (still work independently)
+
+```bash
+# Mac webcam YOLO test — no Pi, no Arduino required
+python3 raven-brain-stack/src/perception/sign_recognition/live_sign_detector.py --webcam
+
+# Manual Arduino keyboard control
+python3 raven-brain-stack/src/serial_controller.py
+
+# Mac video window only
+python3 raven-brain-stack/services/rpi-wifi-fallback/frame_receiver_server.py --display
+```
+
+### Troubleshooting
+
+| Problem | Fix |
+| --- | --- |
+| `❌ Failed to open /dev/ttyACM0` | Check USB cable → `ls /dev/ttyACM*` |
+| Video window doesn't appear | Start server on Mac **before** `skynet.py` on Pi |
+| YOLO too slow on Pi | `--conf 0.3` or `--no-filters` |
+| Wrong Mac IP | `ip a` on Mac, pass result via `--laptop-ip` |
+| `picamera2` missing | `pip install picamera2` or `--webcam-index 0` |
+
+Updated on Sat 07 Mar, 2026 by Hatem Soliman
