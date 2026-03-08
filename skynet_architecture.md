@@ -45,3 +45,48 @@ The core of [skynet.py](file:///Users/hatem/University/AXEL/Challenges/25-26/Bos
 
 ### Summary Conclusion
 You do not have a black-box E2E system. You have built a highly deterministic, professional-grade **Modular Map-Based system with Hybrid Perception**. This is the same architectural style used by modern autonomous companies like Waymo and Cruise, because every single decision the car makes can be logged, audited, and mathematically tuned.
+
+---
+
+## Building the Map Graph (`map_waypoints.json`)
+
+To make the Localization thread work, the car needs to know real-world distances (in centimeters) between signs and intersections. We use a custom interactive Python tool to generate this data from a digital track map image.
+
+### 1. The Map Image File
+Yes, you only need to upload the image file of the track.
+- **Format:** It must be a standard raster image (`.png` or `.jpg`). If you have an `.svg` CAD file, export it as a high-resolution `.png`.
+- **Perspective:** It must be **strictly from above (Top-Down / Orthographic view)**, without any 3D perspective distortion or angling. A digital 2D render (like the standard BFMC track map) is perfect.
+
+### 2. Running the Map Builder Tool
+Once you have your `track.png` saved on your computer, run the interactive OpenCV Map Builder script from your Mac terminal:
+
+```bash
+cd raven-brain-stack
+python3 src/perception/localization/build_map_graph.py path/to/your/track.png
+```
+
+### 3. Step-by-Step UI Instructions
+When the UI window opens, follow the on-screen prompts:
+
+1. **Step 1 & 2: Define Scale:** 
+   - Click two points on the map where you know the exact real-world distance (For example, click the left side of a city lane, then the right side).
+   - The terminal will ask you for the real-world distance in centimeters. Type `35` (or whatever the known distance is) and press enter. 
+   - *This permanently calibrates the pixel-to-centimeter scale for the rest of the map.*
+2. **Step 3: Set Origin (0,0):**
+   - Click the exact spot on the physical Start Line where the robot boots up. This becomes `X=0, Y=0`.
+3. **Step 4: Map the Landmarks (Waypoints):**
+   - Hover your mouse over where a sign is physically located on the track.
+   - Press the corresponding key on your keyboard to select the sign type:
+     - `c` = Crosswalk
+     - `s` = Stop Sign
+     - `r` = Roundabout
+     - `h` = Highway Entrance
+     - `p` = Parking
+     - `y` = Priority Sign
+   - **Click** to drop the waypoint. (Press `z` if you make a mistake and need to undo).
+4. **Step 5: Save and Export:**
+   - Press `q` to quit the window.
+   - The script will automatically generate a highly accurate, scaled `map_waypoints.json` file in your current directory.
+5. **Finalize:**
+   - Move the generated `map_waypoints.json` into `src/perception/localization/map_waypoints.json`. 
+   - The `threadLocalization.py` will automatically read it the next time you boot Skynet!
